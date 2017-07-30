@@ -12,7 +12,7 @@ Group:		Libraries
 Source0:	http://datenfreihafen.org/~stefan/iec16022/%{name}-%{version}.tar.gz
 # Source0-md5:	9395108f1deaa2c4bd6d05a9e7c91431
 URL:		http://datenfreihafen.org/projects/iec16022.html
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	popt-devel
