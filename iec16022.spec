@@ -5,17 +5,20 @@
 Summary:	Library for producing 2D barcodes (known as Data Matrix)
 Summary(pl.UTF-8):	Biblioteka do tworzenia kodów kreskowych 2D (znanych jako DataMatrix)
 Name:		iec16022
-Version:	0.2.4
-Release:	2
+Version:	0.3.0
+Release:	1
 License:	GPL v2
 Group:		Libraries
-Source0:	http://datenfreihafen.org/~stefan/iec16022/%{name}-%{version}.tar.gz
-# Source0-md5:	9395108f1deaa2c4bd6d05a9e7c91431
-URL:		http://datenfreihafen.org/projects/iec16022.html
+#Source0Download: https://github.com/rdoeffinger/iec16022/releases
+Source0:	https://github.com/rdoeffinger/iec16022/releases/download/v%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	bbd2e819fc202e682da0180ede15b7b5
+URL:		http://rdoeffinger.github.io/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	popt-devel
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -70,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libiec16022.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -87,8 +93,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libiec16022.so
-# keep .la as there is no Libs.private in pkgconfig file
-%{_libdir}/libiec16022.la
 %{_includedir}/iec16022
 %{_pkgconfigdir}/libiec16022.pc
 
