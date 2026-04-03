@@ -6,7 +6,7 @@ Summary:	Library for producing 2D barcodes (known as Data Matrix)
 Summary(pl.UTF-8):	Biblioteka do tworzenia kodów kreskowych 2D (znanych jako DataMatrix)
 Name:		iec16022
 Version:	0.3.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 #Source0Download: https://github.com/rdoeffinger/iec16022/releases
